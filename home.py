@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, send_from_directory, send_file
 from utils.prac import *
-from utils.knowledge_graph import *
+from utils.knowledge_graph import generate_knowledge_graph
+from utils.ques_generation.generate_questions import get_questions
 
 app = Flask(__name__)
 
@@ -49,7 +50,17 @@ def map():
 
 @app.route("/question")
 def question():
-    return render_template('question.html')   
+    return render_template('question.html')  
+ 
+
+@app.route("/generate_questions", methods=['GET', 'POST'])
+def generate_questions():
+    text_input = request.form['original_text']
+    question = get_questions(text_input)
+    if question == []:
+        return render_template('question_gen.html', original=text_input)
+    return render_template('question_gen.html', original=text_input, result=question)
+  
 
 if __name__ == '__main__':
     app.run(debug = True)

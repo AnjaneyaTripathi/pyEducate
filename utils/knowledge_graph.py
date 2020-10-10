@@ -14,8 +14,17 @@ stopwords = nlp.Defaults.stop_words
 tokenizer = nlp.Defaults.create_tokenizer(nlp)
 
 import nltk
-nltk.download("averaged_perceptron_tagger")
-nltk.download("punkt")
+# try:
+#     nltk.data.find("averaged_perceptron_tagger")
+# except LookupError:
+#   nltk.download("averaged_perceptron_tagger")
+
+# try:
+#     nltk.data.find("punkt")
+# except LookupError:
+#   nltk.download("punkt")
+
+
 
 import networkx as nx
 import pandas as pd
@@ -168,9 +177,9 @@ def generate_knowledge_graph(text):
     edge_labels=dict([((u,v,),edge[d['weight']])
                     for u,v,d in G.edges(data=True)])
 
-    pos = nx.spring_layout(G,k=0.4)
-    nx.draw(G, with_labels=True, node_color='skyblue', node_size=1000, edge_color='r', edge_cmap=plt.cm.Blues, pos = pos, font_size=11)
-    nx.draw_networkx_edge_labels(G,pos,edge_labels=edge_labels, font_size=9)
+    pos = nx.spring_layout(G,k=0.8)
+    nx.draw(G, with_labels=True, node_color='skyblue', node_size=5000, edge_color='r', edge_cmap=plt.cm.Blues, pos = pos, font_size=20)
+    nx.draw_networkx_edge_labels(G,pos,edge_labels=edge_labels, font_size=15)
 
     plt.title("KNOWLEDGE GRAPH FOR DOCUMENT: " + doc_title, fontdict={'fontsize': 50})
     plt.savefig(os.path.join(IMAGE_DIR,doc_title + ".png"))

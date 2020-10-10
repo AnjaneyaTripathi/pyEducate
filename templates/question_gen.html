@@ -17,35 +17,24 @@
             .box {
                 padding: 10% 10%;
                 color: #6ec5ff;
+                text-align: center;
             }
             .navbar-custom {
                 background-color: #6ec5ff;
             }
-
-            .sample-text {
-                width: 80%;
-                height: 280px;
-                margin: 0 10%;
-                background-color: #1b1b1b;
-                color: #6ec5ff;
-            }
-
-            .cover-button {
-                background-color: #1b1b1b;
-                color: #6ec5ff;
-                border: 1px solid #6ec5ff;
-                border-radius: 5px;
-                margin: 2% 10%;
+            #sum {
+                text-align: left;
             }
         </style>
 
-    </head>>
+    </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
             <a class="navbar-brand" href="/" style="color: #1b1b1b;">py-Educator</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+          
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
@@ -61,18 +50,23 @@
             </div>
         </nav>
         <div class="box">
-            <h1>Mind Map</h1>
-            <p>Generate a Mind Map to get a visual representation of the text</p>
-            <br>
-            <div class="row">
-                <div class="col-md-8">
-                    <form action="/map" method="POST">
-                        <textarea class="sample-text" id="kg_text" name="kg_text"></textarea>
-                        <button class="cover-button" type="submit">Generate a Mind Map</button>
-                    </form>
+            <div class="row" id="sum">
+                <div class="col-md-6">
+                    <h4>Original Text</h4>
+                    <p>{{original}}</p>
                 </div>
-                <div class="col-md-4">
-                    <img src="../static/assets/map.png" style="width: 100%;">
+                <div class="col-md-6">
+                    {% if result %}
+                    <h4>Generated Questions</h4>
+                    <ol>
+                    {% for res in result %}
+                    <li>{{res}}</li>
+                    {% endfor %}
+                    </ol>
+                    {% else %}
+                    <h4>Unable to generate questions :(</h4>
+                    <p>{{result}}</p>
+                    {% endif %}
                 </div>
             </div>
         </div>

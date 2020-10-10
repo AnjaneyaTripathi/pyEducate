@@ -1,6 +1,6 @@
 # hackthemountain-atNSI
 
-This project is built for educativing people amidst the corona virus pandemic. We hope to enable virtual education for all using our website. We use natural language processing to achieve our purpose and bring the best possible eduaction to the users.
+This project is built for educating people amidst the corona virus pandemic. We hope to enable virtual education for all using our website. We use natural language processing to achieve our purpose and bring the best possible eduaction to the users. 
 
 We have 3 components to our portal:
 

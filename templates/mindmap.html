@@ -63,6 +63,12 @@
         <div class="box" style="display:flex; align-items: center; flex-direction: column;">
             {% if image_title %}
             <h3>Your Mind Map</h3>
+
+            <div class="card-body" style="flex-direction: row; justify-content: space-between;">
+                <a href="{{image_title}}" class="card-link" download style="flex: 1;"><b>Download Mind Map</b></a>
+                <a href="{{url_for('view',filename=image_title)}}" class="card-link" style="flex: 1;"><b>View Mind Map</b></a>
+            </div>
+            
             <img src="{{image_title}}" alt="Knowledge Graph" width="70%" height="70%">
             {% else %}
             <h4>Unable to generate mind map :( </h4>

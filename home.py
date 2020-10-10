@@ -45,6 +45,12 @@ def map():
     else:
         return render_template('map.html')
 
+# view/download mindmap
+@app.route('/<path:filename>', methods=['GET', 'POST'])
+def view(filename):
+    image_dir = os.path.join(app.root_path, "/static/media/")
+    return send_from_directory(directory=image_dir, filename=filename.split("/")[-1],as_attachment=True,attachment_filename=filename.split("/")[-1]) 
+
 
 # ROUTES FOR QUESTION GENERATION
 

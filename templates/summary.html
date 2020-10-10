@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Page</title>
+
+        <!-- CSS only -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!-- JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+        <style>
+            body, html {
+                background-color: #1b1b1b;
+            }
+            .box {
+                padding: 10% 10%;
+                color: #6ec5ff;
+            }
+            .navbar-custom {
+                background-color: #6ec5ff;
+            }
+
+            .sample-text {
+                width: 80%;
+                height: 280px;
+                margin: 0 10%;
+                background-color: #1b1b1b;
+                color: #6ec5ff;
+            }
+
+            .cover-button {
+                background-color: #1b1b1b;
+                color: #6ec5ff;
+                border: 1px solid #6ec5ff;
+                border-radius: 5px;
+                margin: 2% 10%;
+            }
+        </style>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
+            <a class="navbar-brand" href="/" style="color: #1b1b1b;">py-Educator</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/summary" style="color: #1b1b1b;">Generate a Summary</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/map" style="color: #1b1b1b;">Show me a Mind Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/question" style="color: #1b1b1b;">Personalised Q & A Session</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="box">
+            <h1>Summarizer</h1>
+            <p>Want to condense your study material so that it retains only the key points? Well, enter your text and behold magic!</p>
+            <br>
+            <div class="row">
+                <div class="col-md-8">
+                    <form action="/generate_summary" method="POST">
+                        <textarea class="sample-text" id="original_text" name="original_text">In an attempt to build an AI-ready workforce, Microsoft announced Intelligent Cloud Hub which has been launched to empower the next generation of students with AI-ready skills. Envisioned as a three-year collaborative program, Intelligent Cloud Hub will support around 100 institutions with AI infrastructure, course content and curriculum, developer support, development tools and give students access to cloud and AI services. As part of the program, the Redmond giant which wants to expand its reach and is planning to build a strong developer ecosystem in India with the program will set up the core AI infrastructure and IoT Hub for the selected campuses. The company will provide AI development tools and Azure AI services such as Microsoft Cognitive Services, Bot Services and Azure Machine Learning.According to Manish Prakash, Country General Manager-PS, Health and Education, Microsoft India, said, "With AI being the defining technology of our time, it is transforming lives and industry and the jobs of tomorrow will require a different skillset. This will require more collaborations and training and working with AI. That’s why it has become more critical than ever for educational institutions to integrate new cloud and AI technologies. The program is an attempt to ramp up the institutional set-up and build capabilities among the educators to educate the workforce of tomorrow." The program aims to build up the cognitive skills and in-depth understanding of developing intelligent cloud connected solutions for applications across industry. Earlier in April this year, the company announced Microsoft Professional Program In AI as a learning track open to the public. The program was developed to provide job ready skills to programmers who wanted to hone their skills in AI and data science with a series of online courses which featured hands-on labs and expert instructors as well. This program also included developer-focused AI school that provided a bunch of assets to help build AI skills.</textarea>
+                        <button class="cover-button">Generate a Summary</button>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                    <img src="../static/media/summary.jpg" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

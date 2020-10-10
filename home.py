@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_from_directory, send_file
 from utils.prac import *
+from utils.knowledge_graph import *
 
 app = Flask(__name__)
 
@@ -31,10 +32,18 @@ def generate_summary():
         return render_template('summary_gen.html', result=result, original=text_input)
 
 # ROUTES FOR MIND MAP GENERATION
-
 @app.route("/map", methods=['GET','POST'])
 def map():
-    return render_template('map.html')
+    if request.method=='POST':
+        text = request.form['kg_text']
+        image_title = generate_knowledge_graph(text)
+        if image_title==False:
+            return render_template('mindmap.html')
+        else:
+            return render_template('mindmap.html', image_title=image_title)
+    else:
+        return render_template('map.html')
+
 
 # ROUTES FOR QUESTION GENERATION
 

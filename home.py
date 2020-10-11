@@ -4,6 +4,7 @@ from utils.knowledge_graph import generate_knowledge_graph
 from utils.ques_generation.generate_questions import get_questions
 from utils.domain_summarizer import get_domain_summary
 import os
+import random
 
 app = Flask(__name__)
 
@@ -73,6 +74,7 @@ def generate_questions():
     question = get_questions(text_input)
     if question == []:
         return render_template('question_gen.html', original=text_input)
+    random.shuffle(question)
     return render_template('question_gen.html', original=text_input, result=question)
   
 

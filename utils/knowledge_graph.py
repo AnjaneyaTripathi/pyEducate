@@ -7,8 +7,8 @@ from spacy.pipeline import TextCategorizer, Sentencizer
 from spacy.lang.en import English
 from spacy.matcher import Matcher 
 from spacy.tokens import Span 
-# nlp = English()
-nlp = spacy.load("en_core_web_md",disable=['ner','textcat'])
+nlp = English()
+# nlp = spacy.load("en_core_web_md",disable=['ner','textcat'])
 nlp.max_length = 3000000
 stopwords = nlp.Defaults.stop_words
 tokenizer = nlp.Defaults.create_tokenizer(nlp)

@@ -1,10 +1,11 @@
 import spacy
 from spacy.lang.en import English
+from spacy.pipeline import Sentencizer
 
 import nltk
 
-nlp = spacy.load("en_core_web_md")
-# nlp = English()
+# nlp = spacy.load("en_core_web_md")
+nlp = English()
 
 
 def chunk_search(segment, chunked):
@@ -1423,6 +1424,7 @@ def nerTagger(nlp, tokenize):
 
 class QuestionGenerator():
     def parse_text(self, sentence):
+        nlp.add_pipe(Sentencizer())
         singleSentences = sentence.split(".")
         questionsList = []
         if len(singleSentences) != 0:

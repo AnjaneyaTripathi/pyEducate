@@ -7,6 +7,8 @@ import pandas as pd
 from nltk.tokenize import word_tokenize, sent_tokenize
 
 # FUNCTION DEFINITIONS 
+def hasNumbers(inputString):
+     return any(char.isdigit() for char in inputString)
 
 # cleaning the text file
 def clean_text(text):
@@ -129,7 +131,7 @@ def summary(sent_data, alpha):
         cnt  = cnt + t_dict['score']
     avg = cnt / len(sent_data)
     for sent in sent_data:
-        if sent['score'] >= (avg * alpha):
+        if sent['score'] >= (avg * alpha) or hasNumbers(sent['sentence'])==True:
             summary.append(sent['sentence'])
     result = " ".join(summary)
     return summary, result

@@ -29,12 +29,16 @@
             #sum {
                 text-align: left;
             }
+
+            #qcard {
+                border: 1px solid #1f1f1f;
+            }
         </style>
 
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
-            <a class="navbar-brand" href="/" style="color: #afd7ee; font-family: 'Bungee', sans-serif;">py-Educator</a>
+            <a class="navbar-brand" href="/" style="color: #afd7ee; font-family: 'Bungee', sans-serif;">pyEDUCATE</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,12 +57,30 @@
             </div>
         </nav>
         <div class="box">
+            <div>
+                <h4>Original Text</h4>
+                <p>{{original}}</p>
+            </div>
+            <hr>
             <div class="row" id="sum">
-                <div class="col-md-6">
-                    <h4>Original Text</h4>
-                    <p>{{original}}</p>
+                {% if result %}
+                {% for res in result %}
+                <div class="col-md-4" style="align-items: center;">
+                    <div class="card" style="width: 18rem; margin: auto;">
+                        <div class="card-body">
+                            <p class="card-text">{{res}}</p>
+                        </div>
+                    </div>
+                    <br>
                 </div>
-                <div class="col-md-6">
+                {% endfor %}
+                {% else %}
+                <h4>Unable to generate questions :(</h4>
+                <p>{{result}}</p>
+                {% endif %}
+
+                
+                <!-- <div class="col-md-6">
                     {% if result %}
                     <h4>Generated Questions</h4>
                     <ol>
@@ -70,7 +92,7 @@
                     <h4>Unable to generate questions :(</h4>
                     <p>{{result}}</p>
                     {% endif %}
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

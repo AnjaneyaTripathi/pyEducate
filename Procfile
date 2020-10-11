@@ -1,0 +1,1 @@
+web: gunicorn app:home &&  python -m spacy download en_core_web_sm

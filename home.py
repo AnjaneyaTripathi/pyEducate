@@ -13,11 +13,11 @@ def home():
 
 # ROUTES FOR SUMMARY GENERATION
 
-@app.route("/summary")
+@app.route("/revise")
 def summary_page():
-    return render_template('summary.html')
+    return render_template('revise.html')
 
-@app.route("/generate_summary", methods=['GET', 'POST'])
+@app.route("/generate_key", methods=['GET', 'POST'])
 def generate_summary():
     if request.method=='POST':
         text_input = request.form['original_text']
@@ -38,7 +38,7 @@ def generate_summary():
         else:
             result = get_domain_summary(text_input,choice)
 
-        return render_template('summary_gen.html', result=result, original=text_input)
+        return render_template('key_points.html', result=result, original=text_input)
 
 # ROUTES FOR MIND MAP GENERATION
 @app.route("/map", methods=['GET','POST'])

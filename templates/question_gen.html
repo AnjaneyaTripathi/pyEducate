@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Questions</title>
 
         <!-- CSS only -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -66,7 +66,7 @@
                 {% if result %}
                 {% for res in result %}
                 <div class="col-md-4" style="align-items: center;">
-                    <div class="card" style="width: 18rem; margin: auto;">
+                    <div class = "card shadow-sm p-3 mb-5 bg-white rounded" style="width: 18rem; margin: auto; cursor: pointer;" onmouseover="make_blue(this)" onmouseout="remove_border(this)">
                         <div class="card-body">
                             <p class="card-text">{{res}}</p>
                         </div>
@@ -96,4 +96,12 @@
             </div>
         </div>
     </body>
+    <script>
+    function make_blue(card) {
+        card.style.border = "1px solid blue"
+    }
+    function remove_border(card) {
+        card.style.border = null
+    }
+    </script>
 </html>

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_from_directory, send_fil
 from utils.prac import *
 from utils.knowledge_graph import generate_knowledge_graph
 from utils.ques_generation.generate_questions import get_questions
+from utils.domain_summarizer import get_domain_summary
 import os
 
 app = Flask(__name__)
@@ -20,17 +21,23 @@ def summary_page():
 def generate_summary():
     if request.method=='POST':
         text_input = request.form['original_text']
-        sentences =  clean_text(text_input)
-        text_data = cnt_in_sent(sentences)
+        choice = request.form['purpose']
+        result = ""
+        if choice=="gen":
+            sentences =  clean_text(text_input)
+            text_data = cnt_in_sent(sentences)
 
-        freq_list = freq_dict(sentences)
-        tf_scores = calc_TF(text_data, freq_list)
-        idf_scores = calc_IDF(text_data, freq_list)
+            freq_list = freq_dict(sentences)
+            tf_scores = calc_TF(text_data, freq_list)
+            idf_scores = calc_IDF(text_data, freq_list)
 
-        tfidf_scores = calc_TFIDF(tf_scores, idf_scores)
+            tfidf_scores = calc_TFIDF(tf_scores, idf_scores)
 
-        sent_data = sent_scores(tfidf_scores, sentences, text_data)
-        result = summary(sent_data)
+            sent_data = sent_scores(tfidf_scores, sentences, text_data)
+            result = summary(sent_data)
+        else:
+            result = get_domain_summary(text_input,choice)
+
         return render_template('summary_gen.html', result=result, original=text_input)
 
 # ROUTES FOR MIND MAP GENERATION

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home Page</title>
+        <title>Questions</title>
 
         <!-- CSS only -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -19,18 +19,20 @@
                 left: 50%;
                 top: 50%;
                 z-index: 1;
-                width: 150px;
-                height: 150px;
-                margin: -75px 0 0 -75px;
-                border: 16px solid #f3f3f3;
-                border-radius: 50%;
-                border-top: 16px solid #3498db;
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
+                margin: -50px 0 0 -50px;
+                border: 10px solid #afd7ee;
+                border-radius: 80%;
+                border-top: 10px solid#1f1f1f;
+                width: 80px;
+                height: 80px;
                 -webkit-animation: spin 2s linear infinite;
                 animation: spin 2s linear infinite;
             }
-
+            #ques_loader {
+                display: none;
+            }
             @-webkit-keyframes spin {
                 0% { -webkit-transform: rotate(0deg); }
                 100% { -webkit-transform: rotate(360deg); }
@@ -89,7 +91,10 @@
                 </ul>
             </div>
         </nav>
+        <div id="ques_loader">
         <div id="loader"></div>
+        <p id="text_load" style="color: #1f1f1f;text-align: center">Generating Questions...</p>
+        </div>
         <div class="box" id="question_generation">
             <h1 style="font-family: 'Bungee', cursive;">Question and Answer Time</h1>
             <p>Want to test whatever you've learnt? Enter the text and we'll generate practice questions for you!</p>
@@ -111,6 +116,8 @@
     
     function onLoad() {
         document.getElementById("loader").style.display = "block";
+        document.getElementById("ques_loader").style.display = "block";
+        document.getElementById("text_load").style.display = "block";
         document.getElementById("question_generation").style.display = "none";
     }
     function onFinish() {

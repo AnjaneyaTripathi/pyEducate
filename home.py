@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_from_directory, send_fil
 from utils.prac import *
 from utils.knowledge_graph import generate_knowledge_graph
 from utils.ques_generation.generate_questions import get_questions
+import os
 
 app = Flask(__name__)
 

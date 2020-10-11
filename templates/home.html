@@ -10,30 +10,42 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
+        <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Bungee&family=Oswald&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise" rel="stylesheet" type="text/css"/>
         <style>
             body, html {
-                background-color: #1b1b1b;
+                background-color: #afd7ee;
+                font-family: 'Oswald', sans-serif;
             }
             .box {
-                padding: 18% 25%;
-                color: #6ec5ff;
+                padding: 10% 10%;
+                color: #1f1f1f;
                 text-align: center;
             }
 
             .cover-button {
-                background-color: #1b1b1b;
-                color: #6ec5ff;
-                border: 1px solid #6ec5ff;
+                background-color: #afd7ee;
+                color: #1f1f1f;
+                border: 1px solid #1f1f1f;
                 border-radius: 5px;
+            }
+
+            body {
+                /* font-family: 'Waiting for the Sunrise', cursive; */
+                font-family: 'Oswald', sans-serif; 
+                font-size: 25px; 
+                margin: 10px 50px; 
+                letter-spacing: 0px; 
+                font-weight: bold;
             }
         </style>
 
     </head>
     <body>
         <div class="box">
-            <h1>py-EDUCATOR</h1>
+            <h1 style="font-family: 'Bungee', cursive;">py-EDUCATOR</h1>
             <br>
-            <p>Your personal educator tailor fit to meet all your academic needs!</p>
+            <p id="typedtext"></p>
             <br>
             <div class="row">
                 <div class="col-md-4" style="padding-bottom: 5%;">
@@ -43,9 +55,46 @@
                     <button class="cover-button" onclick="location.href = '/map';">Show me a Mind Map</button>
                 </div>
                 <div class="col-md-4" style="padding-bottom: 5%;">
-                    <button class="cover-button" onclick="location.href = '/question';">Personalised Q & A Session</button>
+                    <button class="cover-button" onclick="location.href = '/question';">Test Your Knowledge</button>
                 </div>
             </div>
+            <p style="font-family: 'Oswald', sans-serif; font-size: 18px; letter-spacing: 0px; text-align: left;">pyEducate is an online education platform where we plan to bring to every user the best available techniques to learn concepts and achieve the goals they set for themselves. We currently offer three products - a text summarizer that can summarize any text for you and show only the key details that will be relevant to you based on your choices, a mind map for all those who prefer to learn visually and finally a personalised question generation module that will generate relevant questions based on the document you have entered so that you can check how well you have learnt!</p>
         </div>
     </body>
+
+    <script>
+        // set up text to print, each item in array is new line
+        var aText = new Array(
+            "Your personal educator tailor fit to meet all your academic needs!"
+        );
+        var iSpeed = 100; // time delay of print out
+        var iIndex = 0; // start printing array at this posision
+        var iArrLength = aText[0].length; // the length of the text array
+        var iScrollAt = 20; // start scrolling up at this many lines
+        
+        var iTextPos = 0; // initialise text position
+        var sContents = ''; // initialise contents variable
+        var iRow; // initialise current row
+        
+        function typewriter() {
+            sContents =  ' ';
+            iRow = Math.max(0, iIndex-iScrollAt);
+            var destination = document.getElementById("typedtext");        
+            while ( iRow < iIndex ) {
+                sContents += aText[iRow++] + '<br />';
+            }
+            destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "_";
+            if ( iTextPos++ == iArrLength ) {
+                iTextPos = 0;
+                iIndex++;
+                if ( iIndex != aText.length ) {
+                    iArrLength = aText[iIndex].length;
+                    setTimeout("typewriter()", 500);
+                }
+            } else {
+                setTimeout("typewriter()", iSpeed);
+            }
+        }
+        typewriter();
+    </script>
 </html>

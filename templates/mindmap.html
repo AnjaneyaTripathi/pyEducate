@@ -9,31 +9,34 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Graduate&family=Bungee&family=Oswald&display=swap" rel="stylesheet">
 
         <style>
             body, html {
-                background-color: #1b1b1b;
+                background-color: #afd7ee;
+                font-family: 'Oswald', sans-serif;
             }
             .box {
                 padding: 10% 10%;
-                color: #6ec5ff;
+                color: #1f1f1f;
             }
             .navbar-custom {
-                background-color: #6ec5ff;
+                background-color: #1f1f1f;
+                font-family: 'Oswald', sans-serif;
             }
 
             .sample-text {
                 width: 80%;
                 height: 280px;
                 margin: 0 10%;
-                background-color: #1b1b1b;
-                color: #6ec5ff;
+                background-color: #afd7ee;
+                color: #1f1f1f;
             }
 
             .cover-button {
-                background-color: #1b1b1b;
-                color: #6ec5ff;
-                border: 1px solid #6ec5ff;
+                background-color: #afd7ee;
+                color: #1f1f1f;
+                border: 1px solid #1f1f1f;
                 border-radius: 5px;
                 margin: 2% 10%;
             }
@@ -42,20 +45,20 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-lg fixed-top navbar-custom">
-            <a class="navbar-brand" href="/" style="color: #1b1b1b;">py-Educator</a>
+            <a class="navbar-brand" href="/" style="color: #afd7ee; font-family: 'Bungee', sans-serif;">py-Educator</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/summary" style="color: #1b1b1b;">Generate a Summary</a>
+                        <a class="nav-link" href="/summary" style="color: #afd7ee;">Generate a Summary</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/map" style="color: #1b1b1b;">Show me a Mind Map</a>
+                        <a class="nav-link" href="/map" style="color: #afd7ee;">Show me a Mind Map</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/question" style="color: #1b1b1b;">Personalised Q & A Session</a>
+                        <a class="nav-link" href="/question" style="color: #afd7ee;">Personalised Q & A Session</a>
                     </li>
                 </ul>
             </div>
@@ -69,7 +72,7 @@
                 <a href="{{url_for('view',filename=image_title)}}" class="card-link" style="flex: 1;"><b>View Mind Map</b></a>
             </div>
             
-            <img src="{{image_title}}" alt="Knowledge Graph" width="70%" height="70%">
+            <img src="{{image_title}}" alt="Knowledge Graph" width="50%" height="50%">
             {% else %}
             <h4>Unable to generate mind map :( </h4>
             {% endif %}

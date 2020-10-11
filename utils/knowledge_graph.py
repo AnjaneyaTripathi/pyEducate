@@ -34,7 +34,6 @@ from tqdm import tqdm
 import time
 
 
-
 def validateString(s):
     for ch in s:
         if ch.isalpha():

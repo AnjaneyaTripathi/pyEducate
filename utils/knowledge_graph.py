@@ -33,6 +33,8 @@ from tqdm import tqdm
 
 import time
 
+plt.switch_backend('Agg')
+
 
 def validateString(s):
     for ch in s:

@@ -18,7 +18,6 @@ Given a document, we are trying to generate simple questions that the user as a 
 
 <img src="./display/home_page.png">
 
-
 #### Contributors:
 
 [Anjaneya Tripathi](https://github.com/AnjaneyaTripathi) and [Naren Sairam Iyer](https://github.com/nsi319)

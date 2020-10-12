@@ -17,3 +17,7 @@ With any given text, we hope to generate a mind map that relates different entit
 #### 3. Question Generation:
 
 Given a document, we are trying to generate simple questions that the user as a question bank to test their learning and see how well they have prepared. So after the user learns from the previous two modules, they can test themselves by questions generated automatically using natural language processing.
+
+#### Contributors:
+
+[Anjaneya Tripathi](https://github.com/AnjaneyaTripathi) and [Naren Sairam Iyer](https://github.com/nsi319)

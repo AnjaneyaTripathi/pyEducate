@@ -7,8 +7,9 @@ from spacy.pipeline import TextCategorizer, Sentencizer
 from spacy.lang.en import English
 from spacy.matcher import Matcher 
 from spacy.tokens import Span 
-nlp = English()
-# nlp = spacy.load("en_core_web_md",disable=['ner','textcat'])
+# nlp = English()
+# nlp.add_pipe(nlp.create_pipe('sentencizer'))
+nlp = spacy.load("en_core_web_sm",disable=['ner','textcat'])
 nlp.max_length = 3000000
 stopwords = nlp.Defaults.stop_words
 tokenizer = nlp.Defaults.create_tokenizer(nlp)
@@ -96,7 +97,6 @@ def get_entities(sent):
 
 def get_relation(sent):
   doc = nlp(sent)
-  doc
   matcher = Matcher(nlp.vocab)
 
   pattern1 = [{'DEP':'ROOT'}, 
@@ -121,7 +121,6 @@ def get_relation(sent):
 def generate_knowledge_graph(text):
   doc_title = str(time.time())
   sentencizer = Sentencizer()
-  nlp.add_pipe(sentencizer)
   doc = nlp(text)
   clean_data = []
   n=0

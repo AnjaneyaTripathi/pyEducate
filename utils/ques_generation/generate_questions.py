@@ -3,9 +3,11 @@ from spacy.lang.en import English
 from spacy.pipeline import Sentencizer
 
 import nltk
+import en_core_web_sm
 
-# nlp = spacy.load("en_core_web_md")
-nlp = English()
+
+nlp = spacy.load("en_core_web_sm",disable=['ner','textcat'])
+# nlp = English()
 
 
 def chunk_search(segment, chunked):

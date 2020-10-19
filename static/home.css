@@ -1,0 +1,25 @@
+body, html {
+    background-color: #afd7ee;
+    font-family: 'Oswald', sans-serif;
+}
+.box {
+    padding: 5% 10%;
+    color: #1f1f1f;
+    text-align: center;
+}
+
+.cover-button {
+    background-color: #afd7ee;
+    color: #1f1f1f;
+    border: 1px solid #1f1f1f;
+    border-radius: 5px;
+}
+
+body {
+    /* font-family: 'Waiting for the Sunrise', cursive; */
+    font-family: 'Oswald', sans-serif; 
+    font-size: 25px; 
+    margin: 10px 50px; 
+    letter-spacing: 0px; 
+    font-weight: bold;
+}

@@ -1,0 +1,28 @@
+body, html {
+    background-color: #afd7ee;
+    font-family: 'Oswald', sans-serif;
+}
+.box {
+    padding: 10% 10%;
+    color: #1f1f1f;
+}
+.navbar-custom {
+    background-color: #1f1f1f;
+    font-family: 'Oswald', sans-serif; 
+}
+
+.sample-text {
+    width: 80%;
+    height: 280px;
+    margin: 0 10%;
+    background-color: #afd7ee;
+    color: #1f1f1f;
+}
+
+.cover-button {
+    background-color: #afd7ee;
+    color: #1f1f1f;
+    border: 1px solid #1f1f1f;
+    border-radius: 5px;
+    margin: 2% 10%;
+}

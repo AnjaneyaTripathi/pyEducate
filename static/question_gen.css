@@ -1,0 +1,20 @@
+body, html {
+    background-color: #afd7ee;
+    font-family: 'Oswald', sans-serif;
+}
+.box {
+    padding: 10% 10%;
+    color: #1f1f1f;
+    text-align: center;
+}
+.navbar-custom {
+    background-color: #1f1f1f;
+    font-family: 'Oswald', sans-serif;
+}
+#sum {
+    text-align: left;
+}
+
+#qcard {
+    border: 1px solid #1f1f1f;
+}
